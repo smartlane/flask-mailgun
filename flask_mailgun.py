@@ -35,7 +35,7 @@ class MailgunApi(object):
 
     @property
     def endpoint(self):
-        return 'https://api.mailgun.net/v2/{}/messages'.format(self.domain)
+        return 'https://api.mailgun.net/v3/{}/messages'.format(self.domain)
 
     @property
     def auth(self):
