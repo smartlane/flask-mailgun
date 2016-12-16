@@ -28,8 +28,9 @@ class MailgunApi(object):
         self.domain = domain
         self.api_key = api_key
 
-    def send_email(self, **kwargs):
-        response = requests.post(self.endpoint, data=kwargs, auth=self.auth)
+    def send_email(self, **kwargs):        
+        files = kwargs.pop('files', [])
+        response = requests.post(self.endpoint, data=kwargs, files=files, auth=self.auth)
         response.raise_for_status()
         return response
 
